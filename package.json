@@ -21,7 +21,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "next lint",
     "format": "prettier --write \"*.{json,html,css,js,ts,tsx}\"",
     "type-check": "tsc --noEmit && eslint \"*.{ts,tsx}\""
   },
