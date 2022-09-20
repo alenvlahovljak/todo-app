@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "baseUrl": "src",
     "lib": ["es2017", "dom", "dom.iterable"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -20,6 +21,5 @@
     "incremental": true
   },
   "include": ["src"],
-  "exclude": ["node_modules"],
-  "extends": "./tsconfig.paths.json"
+  "exclude": ["node_modules"]
 }

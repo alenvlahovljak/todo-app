@@ -50,5 +50,12 @@
     "no-param-reassign": "off",
     "react/jsx-boolean-value": "off",
     "react/destructuring-assignment": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "extensions": [".js", ".ts", ".tsx"]
+      }
+    }
   }
 }

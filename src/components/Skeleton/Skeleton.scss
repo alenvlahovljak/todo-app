@@ -1,0 +1,37 @@
+.skeleton-container {
+}
+
+.container-loading {
+  background: rgba(239, 239, 239, 0.3);
+  display: flex;
+  column-gap: 8px;
+  padding: 6px 8px;
+  margin: 8px 0;
+}
+
+.skeleton-loading {
+  padding: 18px 16px;
+  animation: gradient 1500ms linear infinite;
+  background-image: linear-gradient(to right, #eeeeee 10%, white 50%, #eeeeee 90%);
+  background-size: 200% 200%;
+}
+
+.skeleton-loading.first {
+  flex: 7;
+}
+
+.skeleton-loading.second {
+  flex: 1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
