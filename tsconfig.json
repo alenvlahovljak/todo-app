@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "es2017",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["es2017", "dom", "dom.iterable"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -23,11 +19,7 @@
     "noUnusedParameters": true,
     "incremental": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-  ],
+  "include": ["src"],
+  "exclude": ["node_modules"],
   "extends": "./tsconfig.paths.json"
 }
