@@ -244,7 +244,13 @@ $disabled-color: rgba(239, 239, 239, 0.3);
   font-size: 30px;
   margin: 0;
   text-align: center;
-  padding: 200px;
+  padding-top: 200px;
+}
+
+.error-text:hover {
+  color: $blue-color;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media (max-width: 560px) {
