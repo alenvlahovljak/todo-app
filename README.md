@@ -4,7 +4,12 @@
 
 Run app locally:
 - `yarn install` to install all required dependencies
-- `yarn start` to start the local server or
+- `yarn start` to start the local server
+- `yarn test` to start the test cases
+- `yarn build` to build the app locally
+- `yarn format` format the code
+- `yarn type-check` lint the code with ESLint
+- `yarn saas-lint` lint the SAAS code
 
 Run dockerized app:
 - `source build.sh` to build Docker image
