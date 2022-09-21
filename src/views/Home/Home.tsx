@@ -8,9 +8,7 @@ const Input = lazy(() => import('components/controls/Input/Input'));
 
 import { getTodos } from 'fixtures/todos';
 
-interface DashboardViewProps {}
-
-const DashboardView: FC<DashboardViewProps> = () => {
+const DashboardView: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [todos, setTodos] = useState<ITodo[]>([]);
 
