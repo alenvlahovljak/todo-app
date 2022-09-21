@@ -21,7 +21,7 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
     onChange(newList);
   };
 
-  const renderList = (loading: boolean) => {
+  const renderList = () => {
     if (loading) {
       return <Skeleton />;
     }
@@ -50,7 +50,7 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
 
   return (
     <ul className="list" data-testid="list">
-      {renderList(loading)}
+      {renderList()}
     </ul>
   );
 };

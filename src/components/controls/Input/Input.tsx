@@ -17,6 +17,7 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
   const handleNewInput = (key: string | boolean) => {
     if (key == 'Enter' && value.trim().length != 0) {
       setLoading(true);
+      inputRef.current?.blur();
       setTimeout(() => {
         onChange({ id: getUuid(), text: value, done: false });
         setValue('');

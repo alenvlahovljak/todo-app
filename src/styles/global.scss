@@ -34,6 +34,7 @@ $disabled-color: rgba(239, 239, 239, 0.3);
 
 .content {
   display: flex;
+  box-sizing: border-box;
   width: 500px;
   row-gap: 30px;
   min-width: 300px;
@@ -214,4 +215,20 @@ $disabled-color: rgba(239, 239, 239, 0.3);
   margin: 0;
   text-align: center;
   padding: 200px;
+}
+
+@media (max-width: 560px) {
+  .content {
+    min-width: 100%;
+    width: 100%;
+    padding: 16px 8px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .heading-1 {
+    text-align: left;
+  }
 }
