@@ -15,7 +15,7 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
   const [value, setValue] = useState<string>('');
 
   const handleNewInput = (key: string | boolean) => {
-    if (key == 'Enter' && value.trim().length != 0) {
+    if (key == 'Enter' && value.trim().length > 2) {
       setLoading(true);
       inputRef.current?.blur();
       setTimeout(() => {
@@ -42,7 +42,7 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
         />
         <button
           className="button"
-          disabled={value.trim().length == 0 || loading}
+          disabled={value.trim().length < 3 || loading}
           onClick={() => handleNewInput('Enter')}
           data-testid="todo-button">
           +

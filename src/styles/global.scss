@@ -287,6 +287,7 @@ $disabled-color: rgba(239, 239, 239, 0.3);
 
 .disabled-button {
   background: $disabled-color;
+  color: $gray-color;
 }
 
 .disabled-button:hover {

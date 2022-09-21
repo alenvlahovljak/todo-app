@@ -15,8 +15,10 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
   const [editMode, setEditMode] = useState<boolean | string>(false);
 
   const handleEditInput = (key: string | boolean, todo: ITodo) => {
-    if (key == 'Enter' && value.trim().length != 0) {
-      const newList = items.map((item) => (item.id == todo.id ? { ...item, text: value } : item));
+    if (key == 'Enter' && value.trim().length > 2) {
+      const newList = items.map(({ id, text, done }) =>
+        id == todo.id ? { id, text: value, done: false } : { id, text, done }
+      );
       onChange(newList);
       setEditMode(false);
       setValue('');
@@ -79,7 +81,8 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
         )}
         <span
           className={cn('list-button edit-button', {
-            ['disabled-button']: editMode && editMode != id
+            ['disabled-button']:
+              (editMode && editMode != id) || (editMode == id && value.trim().length < 3)
           })}
           onClick={() => handleEditTodo({ id, text, done })}>
           {editMode == id ? <div className="edit-todo">+</div> : <div className="pencil" />}

@@ -44,10 +44,10 @@ it('should enable the button when a valid input is entered', () => {
   expect(button).toBeEnabled();
 });
 
-it('should have the button disabled if the input is less than 1 char', () => {
+it('should have the button disabled if the input is less than 3 char', () => {
   const { input, button } = setup();
   expect(button).toBeDisabled();
-  fireEvent.change(input, { target: { value: '' } });
+  fireEvent.change(input, { target: { value: 'te' } });
   expect(button).toBeDisabled();
 });
 
