@@ -2,8 +2,8 @@ import type { FC } from 'react';
 
 import ErrorLayout from 'components/layouts/Error/Error';
 
-const DashboardView: FC = () => {
-  return <ErrorLayout title="404 Page" />;
+const ErrorView: FC = () => {
+  return <ErrorLayout title="404 Page" data-testid="error-layout" />;
 };
 
-export default DashboardView;
+export default ErrorView;

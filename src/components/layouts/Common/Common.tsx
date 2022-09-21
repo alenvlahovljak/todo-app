@@ -10,11 +10,11 @@ interface CommonProps {
 
 const Common: FC<CommonProps> = ({ children }) => {
   return (
-    <>
+    <div data-testid="common">
       <Header title="Todo App" />
       <Content>{children}</Content>
       <Footer />
-    </>
+    </div>
   );
 };
 

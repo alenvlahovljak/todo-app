@@ -27,7 +27,11 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
     }
 
     if (items.length == 0) {
-      return <p className="empty-list">The list is empty!</p>;
+      return (
+        <p className="empty-list" data-testid="empty-list">
+          The list is empty!
+        </p>
+      );
     }
 
     return items.map(({ id, text, done }) => (
@@ -44,7 +48,11 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
     ));
   };
 
-  return <ul className="list">{renderList(loading)}</ul>;
+  return (
+    <ul className="list" data-testid="list">
+      {renderList(loading)}
+    </ul>
+  );
 };
 
 export default List;

@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ title = 'Header' }) => {
   return (
-    <div className="container header">
+    <div className="container header" data-testid="header">
       <div className="logo" />
       <h1 className="heading-1">{title}</h1>
     </div>

@@ -15,7 +15,7 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
   const [value, setValue] = useState<string>('');
 
   const handleNewInput = (key: string | boolean) => {
-    if (key == 'Enter' && value.length != 0) {
+    if (key == 'Enter' && value.trim().length != 0) {
       setLoading(true);
       setTimeout(() => {
         onChange({ id: getUuid(), text: value, done: false });
@@ -41,7 +41,7 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
         />
         <button
           className="button"
-          disabled={value.length == 0 || loading}
+          disabled={value.trim().length == 0 || loading}
           onClick={() => handleNewInput('Enter')}
           data-testid="todo-button">
           +

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import Input from './Input';
 
@@ -34,5 +34,26 @@ it('should have the button disabled when initialized', () => {
 
 it('should have the button disabled when it is loading', () => {
   const { button } = setup(true);
+  expect(button).toBeDisabled();
+});
+
+it('should enable the button when a valid input is entered', () => {
+  const { input, button } = setup();
+  expect(button).toBeDisabled();
+  fireEvent.change(input, { target: { value: 'New Todo' } });
+  expect(button).toBeEnabled();
+});
+
+it('should have the button disabled if the input is less than 1 char', () => {
+  const { input, button } = setup();
+  expect(button).toBeDisabled();
+  fireEvent.change(input, { target: { value: '' } });
+  expect(button).toBeDisabled();
+});
+
+it('should have the button disabled if the input is an empty space', () => {
+  const { input, button } = setup();
+  expect(button).toBeDisabled();
+  fireEvent.change(input, { target: { value: '   ' } });
   expect(button).toBeDisabled();
 });

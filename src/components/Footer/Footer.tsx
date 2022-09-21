@@ -4,7 +4,7 @@ const Footer: FC = () => {
   const date = new Date();
 
   return (
-    <div className="container footer">
+    <div className="container footer" data-testid="footer">
       <p className="text">&copy; {date.getFullYear()} Alen Vlahovljak</p>
     </div>
   );
