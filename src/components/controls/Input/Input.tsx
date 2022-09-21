@@ -29,6 +29,7 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
     <div>
       <div className="input-container">
         <input
+          type="text"
           className={cn('input', { ['input-disabled']: loading })}
           ref={inputRef}
           value={value}
@@ -36,11 +37,13 @@ const Input: FC<InputProps> = ({ loading, setLoading, onChange }) => {
           placeholder="Write another todo..."
           onKeyPress={(e) => handleNewInput(e.key)}
           onChange={(e) => setValue(e.target.value)}
+          data-testid="todo-input"
         />
         <button
           className="button"
           disabled={value.length == 0 || loading}
-          onClick={() => handleNewInput('Enter')}>
+          onClick={() => handleNewInput('Enter')}
+          data-testid="todo-button">
           +
         </button>
       </div>

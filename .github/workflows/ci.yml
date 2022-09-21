@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-20.04
 
     strategy:
@@ -33,11 +33,39 @@ jobs:
         if: |
           steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
+
       - name: Run ESLint
         run: yarn type-check
 
-      - name: Format code
-        run: yarn format
+      - name: Test
+        run: yarn build
+
+
+  build:
+    runs-on: ubuntu-20.04
+    needs: test
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: |
+          echo "YARN CACHE CHANGED"
+          yarn --prefer-offline
+        if: |
+          steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
+          steps.cache-node-modules.outputs.cache-hit != 'true'
 
       - name: Build
         run: yarn build
