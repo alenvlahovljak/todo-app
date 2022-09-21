@@ -1,16 +1,14 @@
 import type { FC } from 'react';
 
-import './Header.scss';
-
 interface HeaderProps {
   title: string;
 }
 
 const Header: FC<HeaderProps> = ({ title = 'Header' }) => {
   return (
-    <div className="container">
+    <div className="container header">
       <div className="logo" />
-      <div className="title">{title}</div>
+      <h1 className="heading-1">{title}</h1>
     </div>
   );
 };

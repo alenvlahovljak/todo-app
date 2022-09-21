@@ -4,8 +4,6 @@ import type { ITodo } from 'types';
 
 import Skeleton from 'components/Skeleton/Skeleton';
 
-import './List.scss';
-
 interface ListProps {
   loading: boolean;
   items: ITodo[];
@@ -24,29 +22,29 @@ const List: FC<ListProps> = ({ loading = false, items, onChange }) => {
   };
 
   const renderList = (loading: boolean) => {
-    console.log({ items });
-
     if (loading) {
       return <Skeleton />;
     }
 
     if (items.length == 0) {
-      return <span className="empty-list">The list is empty!</span>;
+      return <p className="empty-list">The list is empty!</p>;
     }
 
     return items.map(({ id, text, done }) => (
-      <li key={id} className="li-item">
-        <span className={cn('item', { checked: done })} onClick={() => handleCompletedTodo(id)}>
+      <li key={id} className="item-container">
+        <span
+          className={cn('item', { ['item--checked']: done })}
+          onClick={() => handleCompletedTodo(id)}>
           {text}
         </span>
-        <span className="close" onClick={() => handleDeleteTodo(id)}>
+        <span className="close-button" onClick={() => handleDeleteTodo(id)}>
           X
         </span>
       </li>
     ));
   };
 
-  return <ul className="ol-list">{renderList(loading)}</ul>;
+  return <ul className="list">{renderList(loading)}</ul>;
 };
 
 export default List;

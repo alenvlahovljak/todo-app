@@ -3,8 +3,6 @@ import cn from 'classnames';
 import { getUuid } from 'utils/helper';
 import { ITodo } from 'types';
 
-import './Input.scss';
-
 interface InputProps {
   loading: boolean;
   setLoading: (loading: boolean) => void;

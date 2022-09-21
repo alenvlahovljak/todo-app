@@ -1,14 +1,11 @@
 import type { FC } from 'react';
 
-import './Footer.scss';
+const Footer: FC = () => {
+  const date = new Date();
 
-interface FooterProps {}
-
-const Footer: FC<FooterProps> = () => {
   return (
-    <div className="footer">
-      <div className="copyright">&copy; {new Date().getFullYear()}</div>
-      <div className="name">Alen Vlahovljak</div>
+    <div className="container footer">
+      <p className="text">&copy; {date.getFullYear()} Alen Vlahovljak</p>
     </div>
   );
 };
